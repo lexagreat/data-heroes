@@ -6,9 +6,19 @@
                <div class="content__wrapper">
                   <h1 class="title">Персонажи рика и морти</h1>
                   <div class="characters-filter">
-                     <input type="text" placeholder="Name" v-model="name" />
-                     <input type="text" placeholder="Status" v-model="status" />
-                     <button @click="getData">Применить</button>
+                     <input
+                        type="text"
+                        placeholder="Name"
+                        v-model="name"
+                        v-on:keyup.enter="getData(true)"
+                     />
+                     <input
+                        type="text"
+                        placeholder="Status"
+                        v-model="status"
+                        v-on:keyup.enter="getData(true)"
+                     />
+                     <button @click="getData(true)">Применить</button>
                   </div>
                   <div class="content__main" v-if="data.length">
                      <ul class="content__list">
@@ -39,7 +49,10 @@ const currentPage = ref(1);
 const name = ref("");
 const status = ref("");
 const pagination = ref({});
-async function getData() {
+async function getData(filters) {
+   if (filters) {
+      currentPage.value = 1;
+   }
    let { data: res } = await getList(
       currentPage.value,
       name.value,
