@@ -1,0 +1,125 @@
+@import "./nullstyle";
+.container {
+   max-width: 1440px;
+   padding-left: 20px;
+   padding-right: 20px;
+   margin: 0 auto;
+}
+.main {
+}
+.content {
+   &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+   }
+   &__list {
+      display: grid;
+      // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+   }
+}
+.title {
+   font-size: 60px;
+   font-weight: 500;
+}
+
+.character-card {
+   display: flex;
+   border-radius: 8px;
+   overflow: hidden;
+   height: 100%;
+   &__image {
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 10px;
+      background-color: rgb(60, 62, 68);
+      font-size: 16px;
+   }
+
+   &__header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+   }
+
+   &__name {
+      font-size: 24px;
+   }
+
+   &__status {
+      display: flex;
+      gap: 8px;
+   }
+
+   &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+   }
+
+   &__subtitle {
+      color: rgb(158, 158, 158);
+   }
+
+   &__location {
+   }
+
+   &__first {
+   }
+}
+.pagination {
+   &__list {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      button {
+         width: 44px;
+         height: 44px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding: 0;
+         &:hover {
+            stroke: #646cff;
+         }
+         svg path {
+            transition: 0.3s;
+         }
+         svg path {
+            stroke: white;
+         }
+      }
+   }
+}
+.category-pagination {
+   &__btn {
+      transition: 0.3s;
+
+      &.active {
+         border-color: #646cff;
+         color: #646cff;
+      }
+      &.disabled {
+         cursor: pointer;
+         &:hover {
+            border-color: transparent;
+         }
+      }
+   }
+}
+
+.characters-filter {
+   display: flex;
+   gap: 24px;
+}
